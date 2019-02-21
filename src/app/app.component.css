@@ -1,0 +1,9 @@
+li {
+  list-style: none;
+}
+.error {
+  background-color: indianred;
+}
+.selected {
+  color: blue;
+}
