@@ -1,46 +1,34 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Détail sur {{personne.prenom}} {{personne.nom}}
-  </h1>
+<div>
+	
+	<ol>
+		<li [class.selected]="p==personne" (click)="monClick(p)" *ngFor="let p of personnes" >
+			{{p.prenom}} {{p.nom}}
+		</li>
+	</ol>
+
+
+	<h1>Detail sur {{ personne.prenom }} {{ personne.nom }}</h1>
+	
+	<h2>Identité</h2>
+	<ul>
+		<li><b>Nom</b> : {{ personne.nom }}</li>
+		<li><b>Prenom</b> : {{ personne.prenom }}</li>
+	</ul>
+	<h2>Découverte</h2>
+	<ul>
+		<li><b>Découverte Majeure</b> : {{ personne.decouverte }}</li>
+		<li><b>Description</b> : {{personne.description}}</li>
+	</ul>
+	<h2>Modification</h2>
+	<ul>
+		<li *ngIf="!personne.nom" >Attention le nom n'est pas défini</li>
+		<li>Nom : <input [class.error]="!personne.nom"  
+						 [(ngModel)]="personne.nom" /></li>
+		<li>Prenom : <input [(ngModel)]="personne.prenom" /></li>
+		<li>Découverte : <input [(ngModel)]="personne.decouverte" /></li>
+		<li>Description : <textarea [(ngModel)]="personne.description" ></textarea></li>
+	</ul>
+	<day [min]="10" [max]="10" [date]="'10/07/2019'" [image]="10"></day>
+	<day [min]="10" [max]="10" [date]="'10/07/2019'" [image]="10"></day>
 </div>
-<h2>Identité</h2>
-<ul>
-  <li>
-    <b>Prenom : </b>{{personne.prenom}}
-  </li>
-  <li>
-    <b>Nom : </b>{{personne.nom}}
-  </li>
-</ul>
-<h2>Découverte Majeure</h2>
-<ul>
-  <li>
-    <b>Découverte : </b>{{personne.decouverte}}
-  </li>
-  <li>
-    <b>Description : </b>{{personne.description}}
-  </li>
-</ul>
-<h2>Modification</h2>
-<ul>
-  <li *ngIf="!personne.nom">Aucun nom défini</li>
-  <li><input
-    [class.error] ="!personne.nom"
-    [(ngModel)]="personne.nom"
-  /></li>
-  <li><input [(ngModel)]="personne.prenom"/></li>
-  <li><input [(ngModel)]="personne.decouverte"/></li>
-  <li><textarea rows="8" cols="80" [(ngModel)]="personne.description"></textarea></li>
-</ul>
-<h2 (click)="effacer(' click')">Effacer</h2>
-<ul>
-  <li *ngFor="let p of personnes">{{p.prenom}} {{p.nom}}</li>
-</ul>
-<h2>Click personnes</h2>
-<ol>
-  <li
-    [class.selected]="p==personne"
-    *ngFor="let p of personnes"
-    (click)="selectionner(p)">{{p.prenom}} {{p.nom}}</li>
-</ol>

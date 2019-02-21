@@ -1,0 +1,21 @@
+.day {
+	width : 150px;
+	height : 200px;
+	border : 2px solid black;
+	box-shadow : 5px 5px 10px gray;
+	border-radius : 10px;
+	text-align : center;
+	margin: 20px;
+}
+
+.min::before{
+	content : 'Min : '
+}
+
+.min::after,.max::after{
+	content : ' °C'
+}
+
+.max::before{
+	content : 'Max : '
+}
